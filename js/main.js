@@ -27,3 +27,31 @@ function playRound(computerChoice, playerChoice) {
             return(`You lose! ${(computerChoice).toUpperCase()} beats ${(playerChoice).toUpperCase()}.`);
     } 
 }
+
+function fullGame() {
+    let computerScore = 0;
+    let playerScore = 0;
+    for(let i = 0; i < 5; i++) {
+        const result = playRound(getComputerChoice(),  getPlayerChoice());
+        console.log(result);
+        if (result.includes("win")) {
+            playerScore++;
+            console.log(`Computer: ${computerScore}   Player: ${playerScore}`);
+        } else if (result.includes("lose")) {
+            computerScore++;
+            console.log(`Computer: ${computerScore}   Player: ${computerScore
+            }`);
+        }
+    }
+        console.log("Final Results: Player: " + playerScore + "  Computer: " + computerScore);
+
+        if (playerScore > computerScore) {
+            console.log("You win the game.");
+        } else if (playerScore < computerScore) {
+            console.log("You lose the game.");
+        } else {
+            console.log("It's a tie game.");
+        }
+}
+
+fullGame();
